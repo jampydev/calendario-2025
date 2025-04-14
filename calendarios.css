@@ -1,0 +1,175 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.calendar-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease; /* Transición para el cambio de mes */
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s ease;
+}
+
+.calendar-header button:hover {
+    transform: scale(1.1);
+}
+
+.calendar-header h2 {
+    font-size: 1.8rem;
+}
+
+.calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.calendar th, .calendar td {
+    padding: 15px;
+    text-align: center;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transiciones para hover y click */
+    cursor: pointer;
+}
+
+.calendar th {
+    font-weight: bold;
+    color: #ddd;
+}
+
+/* ... (resto del código CSS) ... */
+
+.current-day {
+    background-color: #000; /* Fondo negro para el día actual */
+    color: #fff !important; /* Letras blancas para el día actual, ¡importante! */
+    border-radius: 5px;
+}
+
+/* ... (resto del código CSS) ... */
+
+.weekend {
+    color: #f44336;
+}
+
+.calendar td:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.calendar td:active {
+    transform: scale(0.95); /* Efecto de click */
+}
+
+/* Animación de cambio de mes */
+.calendar-container.slide-left {
+    animation: slideLeft 0.8s ease; /* Animación más lenta */
+}
+
+@keyframes slideLeft {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.calendar-container.slide-right {
+    animation: slideRight 0.8s ease; /* Animación más lenta */
+}
+
+@keyframes slideRight {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+    .calendar-container {
+        padding: 20px;
+    }
+
+    .calendar-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .calendar th, .calendar td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .calendar-container {
+        padding: 15px;
+    }
+
+    .calendar-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .calendar th, .calendar td {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+}
+
+
+
+@media (max-width: 320px) {
+    .calendar-container {
+        padding: 10px;
+    }
+
+    .calendar-header h2 {
+        font-size: 1rem;
+    }
+
+    .calendar th, .calendar td {
+        padding: 5px;
+        font-size: 0.7rem;
+    }
+}
